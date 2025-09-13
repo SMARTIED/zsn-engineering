@@ -1,105 +1,82 @@
 /* Basic Styles */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
 }
 
 /* Header & Navigation */
 header {
-    background: #333;
-    color: #fff;
-    padding: 1rem 0;
-    text-align: center;
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
 }
 
 nav a {
-    color: #fff;
-    text-decoration: none;
-    padding: 0 1rem;
+    color: #fff;
+    text-decoration: none;
+    padding: 0 1rem;
 }
 
 /* Hero Section (Landing Page) */
 .hero {
-    position: relative;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #fff;
-    background: url('hero-bg.jpg') no-repeat center center/cover;
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    background: url('hero-bg.jpg') no-repeat center center/cover;
 }
 
 .hero .overlay {
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
 }
 
 .hero h1 {
-    font-size: 3rem;
+    font-size: 3rem;
 }
 
 .hero-logo {
-    width: 150px;
-    height: auto;
+    width: 150px;
+    height: auto;
 }
 
 /* New Page Content (Services, Gallery, Contact) */
 .services-page,
 .gallery,
 .contact-page {
-    padding: 2rem;
-    margin: 2rem auto;
-    max-width: 960px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 960px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Gallery Section */
 .gallery-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
 }
 
 .gallery-img {
-    width: 100%;
-    height: auto;
-    display: block;
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* Footer */
 footer {
-    text-align: center;
-    padding: 1rem 0;
-    background: #333;
-    color: #fff;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-/* New Page Content (Services, Gallery, Contact) */
-.services-page,
-.gallery,
-.contact-page {
-    padding: 2rem;
-    margin: 2rem auto;
-    max-width: 960px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Gallery Section */
-.gallery-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-}
-
-.gallery-img {
-    width: 100%;
-    height: auto;
-    display: block;
+    text-align: center;
+    padding: 1rem 0;
+    background: #333;
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
