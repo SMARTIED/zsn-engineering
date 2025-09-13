@@ -80,3 +80,26 @@ footer {
     bottom: 0;
     width: 100%;
 }
+/* New Page Content (Services, Gallery, Contact) */
+.services-page,
+.gallery,
+.contact-page {
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 960px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Gallery Section */
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.gallery-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
