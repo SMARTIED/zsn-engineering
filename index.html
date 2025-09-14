@@ -9,24 +9,51 @@
 <body>
   <header>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="contact.html">Contact</a>
+      <ul>
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#gallery" class="nav-link">Gallery</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
     </nav>
   </header>
 
-  <section class="hero">
-    <div class="overlay">
-      <img src="logo.png" alt="ZSN Engineering Logo" class="hero-logo">
+  <!-- Carousel Wrapper -->
+  <div class="carousel">
+
+    <section id="home" class="carousel-slide active">
+      <img src="logo.png" alt="ZSN Engineering Logo" class="logo">
       <h1>ZSN Engineering</h1>
-      <p class="tagline">Innovate • Create • Deliver</p>
-      <p class="est">Est. 2022</p>
-    </div>
-  </section>
+      <p>Innovate • Create • Deliver</p>
+      <p>Est. 2022</p>
+    </section>
+
+    <section id="services" class="carousel-slide">
+      <h2>Our Services</h2>
+      <p>We specialize in mechanical engineering solutions...</p>
+    </section>
+
+    <section id="gallery" class="carousel-slide">
+      <h2>Gallery</h2>
+      <p>[Images go here]</p>
+    </section>
+
+    <section id="contact" class="carousel-slide">
+      <h2>Contact Us</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message"></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+
+  </div>
 
   <footer>
     <p>© 2022 ZSN Engineering | All rights reserved.</p>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
