@@ -1,76 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ZSN Engineering</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZSN Engineering</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            overflow: hidden; /* Prevent scrolling */
+        }
+
+        /* Adjust hero section to fit canvas */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        .hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100% !important;
+            height: 100% !important;
+            z-index: 1;
+        }
+
+        .hero .overlay {
+            position: relative;
+            z-index: 2;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 2rem;
+        }
+
+        /* Consistent navigation styling */
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0 1rem;
+        }
+
+        /* Footer styling */
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background: #333;
+            color: #fff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 3;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="#home" class="nav-link active">Home</a></li>
-        <li><a href="#services" class="nav-link">Services</a></li>
-        <li><a href="#gallery" class="nav-link">Gallery</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <!-- Carousel Wrapper -->
-  <div class="carousel">
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
 
-    <section id="home" class="carousel-slide active">
-      <img src="logo.png" alt="ZSN Engineering Logo" class="logo">
-      <h1>ZSN Engineering</h1>
-      <p>Innovate • Create • Deliver</p>
-      <p>Est. 2022</p>
-
-      <!-- 👇 Mascot will show under your intro text -->
-      <div id="mascot" style="width:300px; height:300px; margin:20px auto;"></div>
+    <section class="hero">
+        <canvas id="robotCanvas" class="hero-canvas"></canvas>
+        <div class="overlay">
+            <h1>ZSN Engineering</h1>
+            <p class="tagline">Innovate • Create • Deliver</p>
+            <p class="est">Est. 2022</p>
+        </div>
     </section>
 
-    <section id="services" class="carousel-slide">
-      <h2>Our Services</h2>
-      <p>We specialize in making impossible possible</p>
-    </section>
+    <footer>
+        <p>© 2022 ZSN Engineering | All rights reserved.</p>
+    </footer>
 
-    <section id="gallery" class="carousel-slide">
-      <h2>Gallery</h2>
-      <p>[Images go here]</p>
-    </section>
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
-    <section id="contact" class="carousel-slide">
-      <h2>Contact Us</h2>
-      <form>
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea placeholder="Your Message"></textarea>
-        <button type="submit">Send</button>
-      </form>
-    </section>
+    <script>
+        window.onload = function() {
+            // Scene setup
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('robotCanvas'), antialias: true, alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
 
-  </div>
+            // Robot components
+            const bodyGeometry = new THREE.BoxGeometry(1, 1.5, 0.5);
+            const bodyMaterial = new THREE.MeshStandardMaterial({ color: 0x0077b6 });
+            const body = new THREE.Mesh(bodyGeometry, bodyMaterial);
+            scene.add(body);
 
-  <footer>
-    <p>© 2022 ZSN Engineering | All rights reserved.</p>
-  </footer>
+            const headGeometry = new THREE.BoxGeometry(0.8, 0.8, 0.8);
+            const headMaterial = new THREE.MeshStandardMaterial({ color: 0x00b4d8 });
+            const head = new THREE.Mesh(headGeometry, headMaterial);
+            head.position.y = 1.2;
+            scene.add(head);
 
-  <script src="script.js"></script>
+            const armGeometry = new THREE.BoxGeometry(0.3, 1, 0.3);
+            const armMaterial = new THREE.MeshStandardMaterial({ color: 0x90e0ef });
 
-  <!-- 👇 Lottie animation library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.13/lottie.min.js"></script>
+            const leftArm = new THREE.Mesh(armGeometry, armMaterial);
+            leftArm.position.x = -0.65;
+            leftArm.position.y = 0.25;
+            scene.add(leftArm);
 
-  <!-- 👇 Mascot animation loader -->
-  <script>
-    lottie.loadAnimation({
-      container: document.getElementById('mascot'),
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      path: 'robot-mascot.json' // JSON file of the robot
-    });
-  </script>
+            const rightArm = new THREE.Mesh(armGeometry, armMaterial);
+            rightArm.position.x = 0.65;
+            rightArm.position.y = 0.25;
+            scene.add(rightArm);
+
+            // Add lighting
+            const ambientLight = new THREE.AmbientLight(0x404040, 5);
+            scene.add(ambientLight);
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
+            directionalLight.position.set(1, 1, 1);
+            scene.add(directionalLight);
+
+            camera.position.z = 5;
+
+            // Animation loop
+            let waveDirection = 1;
+            function animate() {
+                requestAnimationFrame(animate);
+
+                // Simple waving motion for the right arm
+                rightArm.rotation.x += 0.05 * waveDirection;
+                if (rightArm.rotation.x > Math.PI / 4 || rightArm.rotation.x < -Math.PI / 4) {
+                    waveDirection *= -1; // Reverse direction
+                }
+                
+                renderer.render(scene, camera);
+            }
+            animate();
+
+            // Handle window resizing
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        };
+    </script>
 </body>
 </html>
