@@ -116,7 +116,13 @@
                             </svg>
                             <span>Services Rendered</span>
                         </h2>
-                        <p class="text-gray-600 hidden">If you have the drawing, we can make it. We offer fitting, turning, milling, and more.</p>
+                        <div id="services-list" class="mt-4 text-gray-800 hidden">
+                            <p class="mb-2">General engineering</p>
+                            <p class="mb-2">Welding</p>
+                            <p class="mb-2">Turning</p>
+                            <p class="mb-2">Milling</p>
+                            <p class="mb-2">All Steel work</p>
+                        </div>
                     </div>
 
                     <!-- Slide 2: Gallery - Gallery/Picture Icon -->
@@ -208,13 +214,6 @@
             track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
         }
 
-        function nextSlide() {
-            currentIndex = (currentIndex + 1) % totalSlides;
-            updateCarousel();
-        }
-
-        setInterval(nextSlide, 5000); // Change slide every 5 seconds
-
         // Add event listeners for navigation clicks
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
@@ -237,6 +236,9 @@
                 if (link === 'contact') {
                     const contactForm = document.getElementById('contact-form');
                     contactForm.classList.toggle('hidden');
+                } else if (link === 'services') {
+                    const servicesList = document.getElementById('services-list');
+                    servicesList.classList.toggle('hidden');
                 } else {
                     const paragraph = heading.nextElementSibling;
                     if (paragraph) {
@@ -251,3 +253,4 @@
     </script>
 </body>
 </html>
+
