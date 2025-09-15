@@ -83,6 +83,7 @@
 
   <!-- Three.js Library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/loaders/GLTFLoader.js"></script>
 
   <script>
   window.onload = function () {
@@ -147,6 +148,20 @@
 
     // Camera
     camera.position.z = 6;
+    // loader for 3D models
+const loader = new THREE.GLTFLoader();
+let robot;
+
+loader.load('assets/models/robot.glb', function(gltf) {
+  robot = gltf.scene;
+  robot.scale.set(0.5, 0.5, 0.5); // make smaller
+  robot.position.set(0, 0, 0);    // on the ground
+  robot.rotation.y = Math.PI / 2; // face right
+  scene.add(robot);
+}, undefined, function(error) {
+  console.error(error);
+});
+
 
     // Animation variables
     let clock = new THREE.Clock();
