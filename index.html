@@ -1,143 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Services - ZSN Engineering</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body {
-        font-family: 'Inter', sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f4;
-        color: #333;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZSN Engineering</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
 
-    .section-padding {
-        padding: 4rem 2rem;
-    }
-    .card {
-        background-color: #fff;
-        border-radius: 0.75rem;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        padding: 2rem;
-    }
+        .hero {
+            position: relative;
+            height: 100vh;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 2rem;
+            z-index: 1;
+        }
 
-    /* Carousel styles */
-    .carousel-container {
-        position: relative;
-        overflow: hidden;
-        width: 100%;
-    }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBAQEDAISEBQSCgcGBQQEBQEHBwcIBgYIBgYIHBwcIhwcGBwYIiIeJCQmJyYmJhYmKhsWGBsYIiAiJisuLzIeJCYy/9sBDAYFBAQEAQcEBQcIFgYIBQQGBQEHBwcIBgYIBgYIHBwcIhwcGBwYIiIeJCQmJyYmJhYmKhsWGBsYIiAiJisuLzIeJCYy/8wARCAAyADIDAREAAhEBAxEB/8QAGwAAAgIDAQAAAAAAAAAAAAAAAAQGBwUCAwf/xAA2EAACAQMCAggDBgMFAAAAAAABAgMEBQAREiEGEzFBCBMiUWGB8DJxoRUjscHhQjNigpKx/8QAGgEAAgMBAQAAAAAAAAAAAAAAAAQCAwUGB//EADcRAAIBAwIDBgQFAwUBAAAAAAECAwAEBSERMVETFCJBYXGBBiNhgTKhsdHwQsHhI0Ji8SMl/9oADAMBAAIRAx0A/D5G8eRk9n9B+BvHkZPZ/Qfg+X/d2v8Asl/M+G/9+B/8A5L+bO/3e3i/xKx3z3/kR93t4v8Ssd89/5Fp3i23e/m7W6046e7f8AEH+hW0rR0kE/Gz45qJbQ0pG8U+Gk4Xk54/oU9Jd/3e3i/xKx3z3/kR93t4v8AErHfPf8AkWreFfG9xQ4W953xL0nQ8u3e7fXo1F4V8b3Fj4V9H2uX7P+863d0/wBP8n30qT13g+728X+JWO+e/wDIj7vbxf4lY757/wAi0xU7U/zC/wCDTdTtT/ML/BplS3T5a/Q3jyMnZ/Qfgbx5GT2f0H4NnO4G8eRk9n9B+BvHkZPZ/QfgyT+56L+rL+B/u+i/qy/g34Nf3N+X0G8eRk9n9B+BvHkZPZ/QfgyS+56L+rL+B/u+i/qy/g34Ne5vyn4G8eRk9n9B+BvHkZPZ/QfgyS+56L+rL+B/u+i/qy/g34Ne5vyn4G8eRk9n9B+BvHkZPZ/QfgyT+56L+rL+B/u+i/qy/g34Ne5vyn4G8eRk9n9B+BvHkZPZ/Qfgya+7qP+rL+B/uxR/1Yv4N+DXu+g3jyMnZ/Qfgbx5GT2f0H4NnO4G8eRk9n9B+BvHkZPZ/Qf/9k=') no-repeat center center/cover;
+            background-color: rgba(0, 0, 0, 0.4);
+            z-index: -1;
+        }
 
-    .carousel-track {
-        display: flex;
-        transition: transform 0.5s ease-in-out;
-    }
-    .carousel-card {
-        min-width: 100%;
-        box-sizing: border-box;
-        padding: 1rem;
-    }
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
 
-    /* Additional styles to make the services page look like the homepage */
-    header {
-      background-color: #1a202c; /* Tailwind's gray-800 */
-      color: #fff;
-      padding: 1rem;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 1rem;
-    }
-    nav a:hover {
-      color: #cbd5e0; /* Tailwind's gray-300 */
-    }
-    footer {
-        background-color: #1a202c;
-        color: white;
-        text-align: center;
-        padding: 1rem;
-    }
-    
-    @media (min-width: 768px) {
-      .carousel-card {
-        min-width: 33.333333%;
-      }
-    }
-  </style>
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 600px;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            overflow: hidden;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            box-sizing: border-box;
+            background-color: #fff;
+            padding: 3rem;
+            text-align: center;
+        }
+        
+        /* Highlighted link styles */
+        .highlighted {
+            font-weight: bold;
+            color: #3b82f6; /* A shade of blue */
+            border-bottom: 2px solid #3b82f6;
+        }
+    </style>
 </head>
 <body>
-  <header class="bg-gray-800 text-white p-4 shadow-lg fixed w-full z-50">
-      <nav class="container mx-auto flex justify-between items-center">
-          <div class="text-xl font-bold">ZSN Engineering</div>
-          <div class="space-x-4">
-              <a href="index.html" class="hover:text-gray-300">Home</a>
-              <a href="services.html" class="hover:text-gray-300">Services</a>
-              <a href="gallery.html" class="hover:text-gray-300">Gallery</a>
-              <a href="contact.html" class="hover:text-gray-300">Contact</a>
-          </div>
-      </nav>
-  </header>
-
-  <main class="mt-16">
-    <section class="section-padding text-center">
-      <h2 class="text-3xl font-bold mb-8">Services Rendered</h2>
-      <p class="text-gray-600 mb-8">If you have the drawing, we can make it. Here is our core expertise:</p>
-      
-      <div class="carousel-container">
-        <div class="carousel-track flex">
-            <div class="carousel-card">
-              <div class="card">
-                <h3 class="text-2xl font-semibold mb-2">Fitting & Turning</h3>
-                <p>Precision is our promise. Our fitting and turning services ensure every part is crafted to exact specifications.</p>
-              </div>
+    <header class="bg-gray-800 text-white p-4 shadow-lg fixed w-full z-50">
+        <nav class="container mx-auto flex justify-between items-center">
+            <div class="text-xl font-bold">ZSN Engineering</div>
+            <div class="space-x-4">
+                <a href="#services" class="hover:text-gray-300" id="nav-services">Services</a>
+                <a href="#gallery" class="hover:text-gray-300" id="nav-gallery">Gallery</a>
+                <a href="#zsn-machinery" class="hover:text-gray-300" id="nav-zsn-machinery">ZSN Machinery</a>
+                <a href="#contact" class="hover:text-gray-300" id="nav-contact">Contact</a>
             </div>
-            <div class="carousel-card">
-              <div class="card">
-                <h3 class="text-2xl font-semibold mb-2">Milling & Fabricating</h3>
-                <p>From complex cuts to robust structures, our advanced milling and fabricating capabilities bring your designs to life.</p>
-              </div>
+        </nav>
+    </header>
+
+    <main class="mt-16">
+        <section class="hero">
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <!-- Slide 1: Services -->
+                    <div class="carousel-slide" data-link="services">
+                        <h2 class="text-4xl font-semibold mb-4 text-gray-800">Services Rendered</h2>
+                        <p class="text-gray-600">If you have the drawing, we can make it. We offer fitting, turning, milling, and more.</p>
+                    </div>
+
+                    <!-- Slide 2: Gallery -->
+                    <div class="carousel-slide" data-link="gallery">
+                        <h2 class="text-4xl font-semibold mb-4 text-gray-800">Our Gallery</h2>
+                        <p class="text-gray-600">Explore our showcase of completed projects and custom-built machinery.</p>
+                    </div>
+
+                    <!-- Slide 3: ZSN Machinery -->
+                    <div class="carousel-slide" data-link="zsn-machinery">
+                        <h2 class="text-4xl font-semibold mb-4 text-gray-800">ZSN Machinery</h2>
+                        <p class="text-gray-600">Discover our reliable, high-performance machinery, designed for precision and durability.</p>
+                    </div>
+
+                    <!-- Slide 4: Contact -->
+                    <div class="carousel-slide" data-link="contact">
+                        <h2 class="text-4xl font-semibold mb-4 text-gray-800">Contact Us</h2>
+                        <p class="text-gray-600">Ready to start a project? Get in touch with us today for a consultation.</p>
+                    </div>
+                </div>
             </div>
-            <div class="carousel-card">
-              <div class="card">
-                <h3 class="text-2xl font-semibold mb-2">Machinery & PLCs</h3>
-                <p>We build reliable, high-performance machinery and integrate sophisticated PLC systems for seamless automation.</p>
-              </div>
-            </div>
-        </div>
-      </div>
-    </section>
-  </main>
+        </section>
+    </main>
 
-  <footer class="bg-gray-800 text-white p-4 mt-8 text-center">
-    <p>© 2022 ZSN Engineering | All rights reserved.</p>
-  </footer>
+    <footer class="bg-gray-800 text-white p-4 text-center">
+        <p>© 2022 ZSN Engineering | All rights reserved.</p>
+    </footer>
 
-  <script>
-    const track = document.querySelector('.carousel-track');
-    const cards = document.querySelectorAll('.carousel-card');
-    let currentIndex = 0;
-    const cardWidth = cards[0].offsetWidth;
+    <script>
+        const track = document.querySelector('.carousel-track');
+        const slides = document.querySelectorAll('.carousel-slide');
+        const navLinks = document.querySelectorAll('header nav a');
+        let currentIndex = 0;
+        const totalSlides = slides.length;
+        const slideWidth = slides[0].offsetWidth;
 
-    function nextSlide() {
-      currentIndex++;
-      if (currentIndex >= cards.length) {
-        currentIndex = 0;
-      }
-      track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-    }
+        function updateCarousel() {
+            // Highlight the correct link
+            navLinks.forEach(link => link.classList.remove('highlighted'));
+            const currentSlideLink = slides[currentIndex].getAttribute('data-link');
+            const navLinkToHighlight = document.getElementById('nav-' + currentSlideLink);
+            if (navLinkToHighlight) {
+                navLinkToHighlight.classList.add('highlighted');
+            }
 
-    setInterval(nextSlide, 3000); // Change slide every 3 seconds
+            // Move the carousel
+            track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+        }
 
-    // Responsive adjustment on window resize
-    window.addEventListener('resize', () => {
-      const newCardWidth = document.querySelector('.carousel-card').offsetWidth;
-      track.style.transform = `translateX(-${currentIndex * newCardWidth}px)`;
-    });
-  </script>
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateCarousel();
+        }
+
+        setInterval(nextSlide, 5000); // Change slide every 5 seconds
+
+        // Add event listeners for navigation clicks
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetLink = e.target.getAttribute('href').substring(1);
+                slides.forEach((slide, index) => {
+                    if (slide.getAttribute('data-link') === targetLink) {
+                        currentIndex = index;
+                    }
+                });
+                updateCarousel();
+            });
+        });
+
+        // Initial update to show the first slide and highlight the first link
+        window.addEventListener('load', updateCarousel);
+    </script>
 </body>
 </html>
