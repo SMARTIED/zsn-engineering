@@ -104,48 +104,7 @@
     dirLight.position.set(5, 10, 7).normalize();
     scene.add(dirLight);
 
-    // Materials
-    const bodyMat = new THREE.MeshStandardMaterial({ color: 0x0077b6 });
-    const armMat = new THREE.MeshStandardMaterial({ color: 0x90e0ef });
-    const headMat = new THREE.MeshStandardMaterial({ color: 0x00b4d8 });
-    const eyeMat = new THREE.MeshStandardMaterial({ color: 0x000000 });
-    const legMat = new THREE.MeshStandardMaterial({ color: 0xffd166 });
-
-    // Body
-    const body = new THREE.Mesh(new THREE.BoxGeometry(1, 1.5, 0.5), bodyMat);
-    scene.add(body);
-
-    // Head
-    const head = new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.8, 0.8), headMat);
-    head.position.y = 1.5;
-    body.add(head);
-
-    // Eyes
-    const leftEye = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.1, 0.1), eyeMat);
-    leftEye.position.set(-0.2, 0.1, 0.4);
-    head.add(leftEye);
-    const rightEye = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.1, 0.1), eyeMat);
-    rightEye.position.set(0.2, 0.1, 0.4);
-    head.add(rightEye);
-
-    // Arms
-    const limbGeo = new THREE.BoxGeometry(0.25, 0.7, 0.25);
-    const rightArm = new THREE.Mesh(limbGeo, armMat);
-    rightArm.position.set(0.8, 0.5, 0);
-    body.add(rightArm);
-    const leftArm = new THREE.Mesh(limbGeo, armMat);
-    leftArm.position.set(-0.8, 0.5, 0);
-    body.add(leftArm);
-
-    // Legs
-    const legGeo = new THREE.BoxGeometry(0.3, 0.8, 0.3);
-    const rightLeg = new THREE.Mesh(legGeo, legMat);
-    rightLeg.position.set(0.3, -1, 0);
-    body.add(rightLeg);
-    const leftLeg = new THREE.Mesh(legGeo, legMat);
-    leftLeg.position.set(-0.3, -1, 0);
-    body.add(leftLeg);
-
+    
     // Camera
     camera.position.z = 6;
     // loader for 3D models
