@@ -1,159 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZSN Engineering</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            overflow: hidden; /* Prevent scrolling */
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services - ZSN Engineering</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+        font-family: 'Inter', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+    }
 
-        /* Adjust hero section to fit canvas and use the full logo as background */
-        .hero {
-            position: relative;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: #fff;
-            /* Use the full-page logo image as the background */
-            background: url('image_6c6ed7.jpg') no-repeat center center/cover;
-        }
+    .section-padding {
+        padding: 4rem 2rem;
+    }
+    .card {
+        background-color: #fff;
+        border-radius: 0.75rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+    }
 
-        .hero-canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100% !important;
-            height: 100% !important;
-            z-index: 1;
-        }
-        
-        /* Header & Navigation */
-        header {
-            display: flex;
-            justify-content: flex-start;
-            background: rgba(51, 51, 51, 0.5); /* Semi-transparent */
-            color: #fff;
-            padding: 1rem;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 3;
-        }
+    /* Carousel styles */
+    .carousel-container {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+    }
 
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            padding: 0 1rem;
-            margin-right: 1rem;
-            font-weight: bold;
-        }
-        
-        /* Footer styling */
-        footer {
-            text-align: center;
-            padding: 1rem 0;
-            background: #333;
-            color: #fff;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            z-index: 3;
-        }
-    </style>
+    .carousel-track {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+    .carousel-card {
+        min-width: 100%;
+        box-sizing: border-box;
+        padding: 1rem;
+    }
+
+    /* Additional styles to make the services page look like the homepage */
+    header {
+      background-color: #1a202c; /* Tailwind's gray-800 */
+      color: #fff;
+      padding: 1rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 1rem;
+    }
+    nav a:hover {
+      color: #cbd5e0; /* Tailwind's gray-300 */
+    }
+    footer {
+        background-color: #1a202c;
+        color: white;
+        text-align: center;
+        padding: 1rem;
+    }
+    
+    @media (min-width: 768px) {
+      .carousel-card {
+        min-width: 33.333333%;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="services.html">Services</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
+  <header class="bg-gray-800 text-white p-4 shadow-lg fixed w-full z-50">
+      <nav class="container mx-auto flex justify-between items-center">
+          <div class="text-xl font-bold">ZSN Engineering</div>
+          <div class="space-x-4">
+              <a href="index.html" class="hover:text-gray-300">Home</a>
+              <a href="services.html" class="hover:text-gray-300">Services</a>
+              <a href="gallery.html" class="hover:text-gray-300">Gallery</a>
+              <a href="contact.html" class="hover:text-gray-300">Contact</a>
+          </div>
+      </nav>
+  </header>
 
-    <section class="hero">
-        <canvas id="robotCanvas" class="hero-canvas"></canvas>
+  <main class="mt-16">
+    <section class="section-padding text-center">
+      <h2 class="text-3xl font-bold mb-8">Services Rendered</h2>
+      <p class="text-gray-600 mb-8">If you have the drawing, we can make it. Here is our core expertise:</p>
+      
+      <div class="carousel-container">
+        <div class="carousel-track flex">
+            <div class="carousel-card">
+              <div class="card">
+                <h3 class="text-2xl font-semibold mb-2">Fitting & Turning</h3>
+                <p>Precision is our promise. Our fitting and turning services ensure every part is crafted to exact specifications.</p>
+              </div>
+            </div>
+            <div class="carousel-card">
+              <div class="card">
+                <h3 class="text-2xl font-semibold mb-2">Milling & Fabricating</h3>
+                <p>From complex cuts to robust structures, our advanced milling and fabricating capabilities bring your designs to life.</p>
+              </div>
+            </div>
+            <div class="carousel-card">
+              <div class="card">
+                <h3 class="text-2xl font-semibold mb-2">Machinery & PLCs</h3>
+                <p>We build reliable, high-performance machinery and integrate sophisticated PLC systems for seamless automation.</p>
+              </div>
+            </div>
+        </div>
+      </div>
     </section>
+  </main>
 
-    <footer>
-        <p>© 2022 ZSN Engineering | All rights reserved.</p>
-    </footer>
+  <footer class="bg-gray-800 text-white p-4 mt-8 text-center">
+    <p>© 2022 ZSN Engineering | All rights reserved.</p>
+  </footer>
 
-   <!-- Three.js Library -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<!-- GLTF Loader -->
-<script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/loaders/GLTFLoader.js"></script>
+  <script>
+    const track = document.querySelector('.carousel-track');
+    const cards = document.querySelectorAll('.carousel-card');
+    let currentIndex = 0;
+    const cardWidth = cards[0].offsetWidth;
 
-<script>
-window.onload = function() {
-    // Scene setup
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({
-        canvas: document.getElementById('robotCanvas'),
-        antialias: true,
-        alpha: true
-    });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-
-    // Lighting
-    const ambientLight = new THREE.AmbientLight(0x404040, 5);
-    scene.add(ambientLight);
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
-    directionalLight.position.set(1, 1, 1);
-    scene.add(directionalLight);
-
-    // Load GLTF model
-    const loader = new THREE.GLTFLoader();
-    let robot;
-
-    loader.load(
-        'assets/models/robot.glb', // make sure this path matches your folder
-        function(gltf) {
-            robot = gltf.scene;
-            robot.scale.set(0.5, 0.5, 0.5); // smaller
-            robot.position.set(0, 0, 0);    // on the ground
-            robot.rotation.y = Math.PI / 2; // face right
-            scene.add(robot);
-        },
-        undefined,
-        function(error) {
-            console.error('Error loading robot:', error);
-        }
-    );
-
-    camera.position.z = 5;
-
-    // Animation loop
-    function animate() {
-        requestAnimationFrame(animate);
-
-        // Simple idle animation if robot is loaded
-        if (robot) {
-            robot.rotation.y += 0.005; // slow spin
-        }
-
-        renderer.render(scene, camera);
+    function nextSlide() {
+      currentIndex++;
+      if (currentIndex >= cards.length) {
+        currentIndex = 0;
+      }
+      track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
     }
-    animate();
 
-    // Handle window resizing
+    setInterval(nextSlide, 3000); // Change slide every 3 seconds
+
+    // Responsive adjustment on window resize
     window.addEventListener('resize', () => {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
+      const newCardWidth = document.querySelector('.carousel-card').offsetWidth;
+      track.style.transform = `translateX(-${currentIndex * newCardWidth}px)`;
     });
-};
-</script>
+  </script>
 </body>
 </html>
