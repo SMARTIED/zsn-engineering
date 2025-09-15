@@ -1,206 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ZSN Engineering</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-      color: #333;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZSN Engineering</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
 
-    .hero {
-      position: relative;
-      height: 100vh;
-      background-color: #f4f4f4;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: #fff;
-      padding: 0 2rem;
-      z-index: 1;
-    }
+        .hero {
+            position: relative;
+            height: 100vh;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 2rem;
+            z-index: 1;
+        }
 
-    /* ✅ Removed the logo background */
-    .hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    
-    /* ✅ Show background logo */
-    background: url('assets/logo.png') no-repeat center center;
-    background-size: 300px auto; /* Adjust size of logo */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
 
-    /* ✅ Add subtle overlay so text is still readable */
-    background-color: rgba(0, 0, 0, 0.4);
-    background-blend-mode: multiply;
+            /* ✅ Centered faint background logo */
+            background: url('assets/logo.png') no-repeat center center;
+            background-size: 300px auto;
 
-    z-index: -1;
-    opacity: 0.3; /* Faint so text is readable */
-}
+            /* ✅ Add overlay to darken slightly so text remains readable */
+            background-color: rgba(0, 0, 0, 0.4);
+            background-blend-mode: multiply;
 
+            z-index: -1;
+            opacity: 0.25; /* Fainter for watermark look */
+        }
 
-    .hero h1 {
-      font-size: 3rem;
-      font-weight: bold;
-      margin-bottom: 1rem;
-    }
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
 
-    .hero p {
-      font-size: 1.25rem;
-      max-width: 600px;
-    }
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 600px;
+        }
 
-    .carousel-container {
-      position: relative;
-      width: 100%;
-      max-width: 900px;
-      overflow: hidden;
-      border-radius: 1rem;
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    }
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            overflow: hidden;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
 
-    .carousel-track {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-    }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
 
-    .carousel-slide {
-      min-width: 100%;
-      box-sizing: border-box;
-      background-color: #fff;
-      padding: 3rem;
-      text-align: center;
-    }
-    
-    .highlighted {
-      font-weight: bold;
-      color: #3b82f6;
-      border-bottom: 2px solid #3b82f6;
-    }
-  </style>
+        /* ✅ Make carousel slides transparent so logo is visible */
+        .carousel-slide {
+            min-width: 100%;
+            box-sizing: border-box;
+            background-color: transparent; /* changed from white */
+            padding: 3rem;
+            text-align: center;
+        }
+        
+        .highlighted {
+            font-weight: bold;
+            color: #3b82f6; /* A shade of blue */
+            border-bottom: 2px solid #3b82f6;
+        }
+    </style>
 </head>
 <body>
-  <!-- ✅ Header with logo -->
-  <header class="bg-gray-800 text-white p-4 shadow-lg fixed w-full z-50">
-    <nav class="container mx-auto flex justify-between items-center">
-      <div class="flex items-center space-x-3">
-        <img src="assets/logo.png" alt="ZSN Engineering Logo" class="h-10 w-auto">
-        <span class="text-xl font-bold">ZSN Engineering</span>
-      </div>
-      <div class="space-x-4">
-        <a href="#services" class="hover:text-gray-300" id="nav-services">Services</a>
-        <a href="#gallery" class="hover:text-gray-300" id="nav-gallery">Gallery</a>
-        <a href="#zsn-machinery" class="hover:text-gray-300" id="nav-zsn-machinery">ZSN Machinery</a>
-        <a href="#contact" class="hover:text-gray-300" id="nav-contact">Contact</a>
-      </div>
-    </nav>
-  </header>
+    <!-- ✅ Header without logo, just text -->
+    <header class="bg-gray-800 text-white p-4 shadow-lg fixed w-full z-50">
+        <nav class="container mx-auto flex justify-between items-center">
+            <div class="text-xl font-bold">ZSN Engineering</div>
+            <div class="space-x-4">
+                <a href="#services" class="hover:text-gray-300" id="nav-services">Services</a>
+                <a href="#gallery" class="hover:text-gray-300" id="nav-gallery">Gallery</a>
+                <a href="#zsn-machinery" class="hover:text-gray-300" id="nav-zsn-machinery">ZSN Machinery</a>
+                <a href="#contact" class="hover:text-gray-300" id="nav-contact">Contact</a>
+            </div>
+        </nav>
+    </header>
 
-  <main class="mt-16">
-    <section class="hero">
-      <div class="carousel-container">
-        <div class="carousel-track">
-          <!-- Slides remain unchanged -->
-          <div class="carousel-slide" data-link="services">
-            <h2 class="text-4xl font-semibold mb-4 text-gray-800 cursor-pointer flex items-center justify-center space-x-4">
-              <svg width="64" height="64" ...></svg>
-              <span>Services Rendered</span>
-            </h2>
-            <p class="text-gray-600 hidden">If you have the drawing, we can make it...</p>
-          </div>
+    <main class="mt-16">
+        <section class="hero">
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <!-- Slide 1: Services - Milling Machine -->
+                    <div class="carousel-slide" data-link="services">
+                        <h2 class="text-4xl font-semibold mb-4 text-gray-800 cursor-pointer flex items-center justify-center space-x-4">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 text-gray-700">
+                                <path d="M12 2v20M4 14h16a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2zM8 12h8M12 22v-4"/>
+                            </svg>
+                            <span>Services Rendered</span>
+                        </h2>
+                        <p class="text-gray-600 hidden">If you have the drawing, we can make it. We offer fitting, turning, milling, and more.</p>
+                    </div>
 
-          <div class="carousel-slide" data-link="gallery">
-            <h2 class="text-4xl font-semibold mb-4 text-gray-800 cursor-pointer flex items-center justify-center space-x-4">
-              <svg width="64" height="64" ...></svg>
-              <span>Our Gallery</span>
-            </h2>
-            <p class="text-gray-600 hidden">Explore our showcase...</p>
-          </div>
+                    <!-- Slide 2: Gallery - Gallery/Picture Icon -->
+                    <div class="carousel-slide" data-link="gallery">
+                        <h2 class="text-4xl font-semibold mb-4 text-gray-800 cursor-pointer flex items-center justify-center space-x-4">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 text-gray-700">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                <circle cx="8.5" cy="8.5" r="1.5"/>
+                                <path d="M21 15l-5-5L5 21"/>
+                            </svg>
+                            <span>Our Gallery</span>
+                        </h2>
+                        <p class="text-gray-600 hidden">Explore our showcase of completed projects and custom-built machinery.</p>
+                    </div>
 
-          <div class="carousel-slide" data-link="zsn-machinery">
-            <h2 class="text-4xl font-semibold mb-4 text-gray-800 cursor-pointer flex items-center justify-center space-x-4">
-              <svg width="64" height="64" ...></svg>
-              <span>ZSN Machinery</span>
-            </h2>
-            <p class="text-gray-600 hidden">Discover our reliable machinery...</p>
-          </div>
+                    <!-- Slide 3: ZSN Machinery - Machine Icon -->
+                    <div class="carousel-slide" data-link="zsn-machinery">
+                        <h2 class="text-4xl font-semibold mb-4 text-gray-800 cursor-pointer flex items-center justify-center space-x-4">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 text-gray-700">
+                                <rect x="3" y="10" width="18" height="11" rx="2" ry="2"/>
+                                <path d="M12 10v-4M16 10V6M8 10V6M12 6c-2.76 0-5 2.24-5 5h10c0-2.76-2.24-5-5-5zM12 2v4"/>
+                            </svg>
+                            <span>ZSN Machinery</span>
+                        </h2>
+                        <p class="text-gray-600 hidden">Discover our reliable, high-performance machinery, designed for precision and durability.</p>
+                    </div>
 
-          <div class="carousel-slide" data-link="contact">
-            <h2 class="text-4xl font-semibold mb-4 text-gray-800 cursor-pointer flex items-center justify-center space-x-4">
-              <svg width="64" height="64" ...></svg>
-              <span>Contact Us</span>
-            </h2>
-            <p class="text-gray-600 hidden">Ready to start a project? Get in touch...</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+                    <!-- Slide 4: Contact - Phone & Email Icons -->
+                    <div class="carousel-slide" data-link="contact">
+                        <h2 class="text-4xl font-semibold mb-4 text-gray-800 cursor-pointer flex items-center justify-center space-x-4">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 text-gray-700">
+                                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                                <path d="M22 6L12 13 2 6"/>
+                            </svg>
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 text-gray-700">
+                                <path d="M22 16.92v3.08a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3.08a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                            <span>Contact Us</span>
+                        </h2>
+                        <p class="text-gray-600 hidden">Ready to start a project? Get in touch with us today for a consultation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-  <footer class="bg-gray-800 text-white p-4 text-center">
-    <p>© 2022 ZSN Engineering | All rights reserved.</p>
-  </footer>
+    <footer class="bg-gray-800 text-white p-4 text-center">
+        <p>© 2022 ZSN Engineering | All rights reserved.</p>
+    </footer>
 
-  <script>
-    const track = document.querySelector('.carousel-track');
-    const slides = document.querySelectorAll('.carousel-slide');
-    const navLinks = document.querySelectorAll('header nav a');
-    let currentIndex = 0;
-    const totalSlides = slides.length;
-    const slideWidth = slides[0].offsetWidth;
+    <script>
+        const track = document.querySelector('.carousel-track');
+        const slides = document.querySelectorAll('.carousel-slide');
+        const navLinks = document.querySelectorAll('header nav a');
+        let currentIndex = 0;
+        const totalSlides = slides.length;
+        const slideWidth = slides[0].offsetWidth;
 
-    function updateCarousel() {
-      navLinks.forEach(link => link.classList.remove('highlighted'));
-      const currentSlideLink = slides[currentIndex].getAttribute('data-link');
-      const navLinkToHighlight = document.getElementById('nav-' + currentSlideLink);
-      if (navLinkToHighlight) {
-        navLinkToHighlight.classList.add('highlighted');
-      }
-      track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-    }
+        function updateCarousel() {
+            // Highlight the correct link
+            navLinks.forEach(link => link.classList.remove('highlighted'));
+            const currentSlideLink = slides[currentIndex].getAttribute('data-link');
+            const navLinkToHighlight = document.getElementById('nav-' + currentSlideLink);
+            if (navLinkToHighlight) {
+                navLinkToHighlight.classList.add('highlighted');
+            }
 
-    function nextSlide() {
-      currentIndex = (currentIndex + 1) % totalSlides;
-      updateCarousel();
-    }
-
-    setInterval(nextSlide, 5000);
-
-    navLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetLink = e.target.getAttribute('href').substring(1);
-        slides.forEach((slide, index) => {
-          if (slide.getAttribute('data-link') === targetLink) {
-            currentIndex = index;
-          }
-        });
-        updateCarousel();
-      });
-    });
-
-    const slideHeadings = document.querySelectorAll('.carousel-slide h2');
-    slideHeadings.forEach(heading => {
-      heading.addEventListener('click', () => {
-        const paragraph = heading.nextElementSibling;
-        if (paragraph) {
-          paragraph.classList.toggle('hidden');
+            // Move the carousel
+            track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
         }
-      });
-    });
 
-    window.addEventListener('load', updateCarousel);
-  </script>
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateCarousel();
+        }
+
+        setInterval(nextSlide, 5000); // Change slide every 5 seconds
+
+        // Add event listeners for navigation clicks
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetLink = e.target.getAttribute('href').substring(1);
+                slides.forEach((slide, index) => {
+                    if (slide.getAttribute('data-link') === targetLink) {
+                        currentIndex = index;
+                    }
+                });
+                updateCarousel();
+            });
+        });
+
+        // Add click event listeners to the headings
+        const slideHeadings = document.querySelectorAll('.carousel-slide h2');
+        slideHeadings.forEach(heading => {
+            heading.addEventListener('click', () => {
+                const paragraph = heading.nextElementSibling;
+                if (paragraph) {
+                    paragraph.classList.toggle('hidden');
+                }
+            });
+        });
+
+        // Initial update to show the first slide and highlight the first link
+        window.addEventListener('load', updateCarousel);
+    </script>
 </body>
 </html>
