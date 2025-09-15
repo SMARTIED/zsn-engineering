@@ -89,132 +89,71 @@
         <p>© 2022 ZSN Engineering | All rights reserved.</p>
     </footer>
 
-    <!-- Three.js Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+   <!-- Three.js Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<!-- GLTF Loader -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/loaders/GLTFLoader.js"></script>
 
-    <script>
-        window.onload = function() {
-            // Scene setup
-            const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('robotCanvas'), antialias: true, alpha: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
+<script>
+window.onload = function() {
+    // Scene setup
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({
+        canvas: document.getElementById('robotCanvas'),
+        antialias: true,
+        alpha: true
+    });
+    renderer.setSize(window.innerWidth, window.innerHeight);
 
-            // Robot materials and geometries
-            const bodyLegMaterial = new THREE.MeshStandardMaterial({ color: 0x0077b6 });
-            const armMaterial = new THREE.MeshStandardMaterial({ color: 0xf0f0f0 });
-            const headMaterial = new THREE.MeshStandardMaterial({ color: 0x00b4d8 });
-            const eyeMaterial = new THREE.MeshStandardMaterial({ color: 0x000000 });
-            const limbGeometry = new THREE.BoxGeometry(0.3, 0.75, 0.3);
+    // Lighting
+    const ambientLight = new THREE.AmbientLight(0x404040, 5);
+    scene.add(ambientLight);
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
+    directionalLight.position.set(1, 1, 1);
+    scene.add(directionalLight);
 
-            // Create robot parts
-            const body = new THREE.Mesh(new THREE.BoxGeometry(1, 1.5, 0.5), bodyLegMaterial);
-            body.position.y = 0;
-            scene.add(body);
+    // Load GLTF model
+    const loader = new THREE.GLTFLoader();
+    let robot;
 
-            const head = new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.8, 0.8), headMaterial);
-            head.position.y = 1.2;
-            scene.add(head);
+    loader.load(
+        'assets/models/robot.glb', // make sure this path matches your folder
+        function(gltf) {
+            robot = gltf.scene;
+            robot.scale.set(0.5, 0.5, 0.5); // smaller
+            robot.position.set(0, 0, 0);    // on the ground
+            robot.rotation.y = Math.PI / 2; // face right
+            scene.add(robot);
+        },
+        undefined,
+        function(error) {
+            console.error('Error loading robot:', error);
+        }
+    );
 
-            const leftEye = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.1, 0.1), eyeMaterial);
-            leftEye.position.set(-0.2, 1.3, 0.4);
-            scene.add(leftEye);
+    camera.position.z = 5;
 
-            const rightEye = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.1, 0.1), eyeMaterial);
-            rightEye.position.set(0.2, 1.3, 0.4);
-            scene.add(rightEye);
+    // Animation loop
+    function animate() {
+        requestAnimationFrame(animate);
 
-            // Create two-part arms
-            const rightArm = new THREE.Group();
-            const rightUpperArm = new THREE.Mesh(limbGeometry, armMaterial);
-            rightUpperArm.position.y = 0.5;
-            rightArm.add(rightUpperArm);
+        // Simple idle animation if robot is loaded
+        if (robot) {
+            robot.rotation.y += 0.005; // slow spin
+        }
 
-            const rightForearm = new THREE.Mesh(limbGeometry, armMaterial);
-            rightForearm.position.y = -0.5;
-            rightUpperArm.add(rightForearm);
+        renderer.render(scene, camera);
+    }
+    animate();
 
-            rightArm.position.set(0.65, 0.25, 0);
-            scene.add(rightArm);
-
-            const leftArm = new THREE.Group();
-            const leftUpperArm = new THREE.Mesh(limbGeometry, armMaterial);
-            leftUpperArm.position.y = 0.5;
-            leftArm.add(leftUpperArm);
-
-            const leftForearm = new THREE.Mesh(limbGeometry, armMaterial);
-            leftForearm.position.y = -0.5;
-            leftUpperArm.add(leftForearm);
-
-            leftArm.position.set(-0.65, 0.25, 0);
-            scene.add(leftArm);
-
-            // Create two-part legs
-            const rightLeg = new THREE.Group();
-            const rightUpperLeg = new THREE.Mesh(limbGeometry, bodyLegMaterial);
-            rightUpperLeg.position.y = -0.5;
-            rightLeg.add(rightUpperLeg);
-            
-            const rightLowerLeg = new THREE.Mesh(limbGeometry, bodyLegMaterial);
-            rightLowerLeg.position.y = -0.5;
-            rightUpperLeg.add(rightLowerLeg);
-
-            rightLeg.position.set(0.3, -1, 0);
-            scene.add(rightLeg);
-
-            const leftLeg = new THREE.Group();
-            const leftUpperLeg = new THREE.Mesh(limbGeometry, bodyLegMaterial);
-            leftUpperLeg.position.y = -0.5;
-            leftLeg.add(leftUpperLeg);
-
-            const leftLowerLeg = new THREE.Mesh(limbGeometry, bodyLegMaterial);
-            leftLowerLeg.position.y = -0.5;
-            leftUpperLeg.add(leftLowerLeg);
-            
-            leftLeg.position.set(-0.3, -1, 0);
-            scene.add(leftLeg);
-
-
-            // Add lighting
-            const ambientLight = new THREE.AmbientLight(0x404040, 5);
-            scene.add(ambientLight);
-            const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
-            directionalLight.position.set(1, 1, 1);
-            scene.add(directionalLight);
-
-            camera.position.z = 5;
-
-            // Animation loop
-            let waveDirection = 1;
-            let headBobDirection = 1;
-            function animate() {
-                requestAnimationFrame(animate);
-                
-                // Waving motion for the right arm
-                rightArm.rotation.x += 0.05 * waveDirection;
-                if (rightArm.rotation.x > Math.PI / 4 || rightArm.rotation.x < -Math.PI / 4) {
-                    waveDirection *= -1; // Reverse direction
-                }
-
-                rightForearm.rotation.x = Math.sin(Date.now() * 0.002) * Math.PI / 8;
-
-                // Bobbing motion for the head
-                head.position.y += 0.01 * headBobDirection;
-                if (head.position.y > 1.3 || head.position.y < 1.1) {
-                    headBobDirection *= -1;
-                }
-                
-                renderer.render(scene, camera);
-            }
-            animate();
-
-            // Handle window resizing
-            window.addEventListener('resize', () => {
-                camera.aspect = window.innerWidth / window.innerHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(window.innerWidth, window.innerHeight);
-            });
-        };
-    </script>
+    // Handle window resizing
+    window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+};
+</script>
 </body>
 </html>
