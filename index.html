@@ -30,15 +30,25 @@
 
     /* ✅ Removed the logo background */
     .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.4); /* optional dark overlay */
-      z-index: -1;
-    }
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* ✅ Show background logo */
+    background: url('assets/logo.png') no-repeat center center;
+    background-size: 300px auto; /* Adjust size of logo */
+
+    /* ✅ Add subtle overlay so text is still readable */
+    background-color: rgba(0, 0, 0, 0.4);
+    background-blend-mode: multiply;
+
+    z-index: -1;
+    opacity: 0.3; /* Faint so text is readable */
+}
+
 
     .hero h1 {
       font-size: 3rem;
