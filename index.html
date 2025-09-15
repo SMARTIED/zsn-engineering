@@ -1,197 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZSN Engineering</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZSN Engineering</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
 
-        .hero {
-            position: relative;
-            height: 100vh;
-            background-color: #f4f4f4;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: #fff;
-            padding: 0 2rem;
-            z-index: 1;
-        }
+    .hero {
+      position: relative;
+      height: 100vh;
+      background-color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      padding: 0 2rem;
+      z-index: 1;
+    }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD...') no-repeat center center/cover;
-            background-color: rgba(0, 0, 0, 0.4);
-            z-index: -1;
-        }
+    /* ✅ Removed the logo background */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4); /* optional dark overlay */
+      z-index: -1;
+    }
 
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
 
-        .hero p {
-            font-size: 1.25rem;
-            max-width: 600px;
-        }
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 600px;
+    }
 
-        .carousel-container {
-            position: relative;
-            width: 100%;
-            max-width: 900px;
-            overflow: hidden;
-            border-radius: 1rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      overflow: hidden;
+      border-radius: 1rem;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
 
-        .carousel-track {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
 
-        .carousel-slide {
-            min-width: 100%;
-            box-sizing: border-box;
-            background-color: #fff;
-            padding: 3rem;
-            text-align: center;
-        }
-        
-        .highlighted {
-            font-weight: bold;
-            color: #3b82f6;
-            border-bottom: 2px solid #3b82f6;
-        }
-    </style>
+    .carousel-slide {
+      min-width: 100%;
+      box-sizing: border-box;
+      background-color: #fff;
+      padding: 3rem;
+      text-align: center;
+    }
+    
+    .highlighted {
+      font-weight: bold;
+      color: #3b82f6;
+      border-bottom: 2px solid #3b82f6;
+    }
+  </style>
 </head>
 <body>
-    <!-- ✅ Updated header with logo -->
-    <header class="bg-gray-800 text-white p-4 shadow-lg fixed w-full z-50">
-        <nav class="container mx-auto flex justify-between items-center">
-            <div class="flex items-center space-x-3">
-                <img src="assets/logo.png" alt="ZSN Engineering Logo" class="h-10 w-auto">
-                <span class="text-xl font-bold">ZSN Engineering</span>
-            </div>
-            <div class="space-x-4">
-                <a href="#services" class="hover:text-gray-300" id="nav-services">Services</a>
-                <a href="#gallery" class="hover:text-gray-300" id="nav-gallery">Gallery</a>
-                <a href="#zsn-machinery" class="hover:text-gray-300" id="nav-zsn-machinery">ZSN Machinery</a>
-                <a href="#contact" class="hover:text-gray-300" id="nav-contact">Contact</a>
-            </div>
-        </nav>
-    </header>
+  <!-- ✅ Header with logo -->
+  <header class="bg-gray-800 text-white p-4 shadow-lg fixed w-full z-50">
+    <nav class="container mx-auto flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <img src="assets/logo.png" alt="ZSN Engineering Logo" class="h-10 w-auto">
+        <span class="text-xl font-bold">ZSN Engineering</span>
+      </div>
+      <div class="space-x-4">
+        <a href="#services" class="hover:text-gray-300" id="nav-services">Services</a>
+        <a href="#gallery" class="hover:text-gray-300" id="nav-gallery">Gallery</a>
+        <a href="#zsn-machinery" class="hover:text-gray-300" id="nav-zsn-machinery">ZSN Machinery</a>
+        <a href="#contact" class="hover:text-gray-300" id="nav-contact">Contact</a>
+      </div>
+    </nav>
+  </header>
 
-    <main class="mt-16">
-        <section class="hero">
-            <div class="carousel-container">
-                <div class="carousel-track">
-                    <!-- Slides remain unchanged -->
-                    <div class="carousel-slide" data-link="services">
-                        <h2 class="text-4xl font-semibold mb-4 text-gray-800 cursor-pointer flex items-center justify-center space-x-4">
-                            <svg width="64" height="64" ...></svg>
-                            <span>Services Rendered</span>
-                        </h2>
-                        <p class="text-gray-600 hidden">If you have the drawing, we can make it...</p>
-                    </div>
+  <main class="mt-16">
+    <section class="hero">
+      <div class="carousel-container">
+        <div class="carousel-track">
+          <!-- Slides remain unchanged -->
+          <div class="carousel-slide" data-link="services">
+            <h2 class="text-4xl font-semibold mb-4 text-gray-800 cursor-pointer flex items-center justify-center space-x-4">
+              <svg width="64" height="64" ...></svg>
+              <span>Services Rendered</span>
+            </h2>
+            <p class="text-gray-600 hidden">If you have the drawing, we can make it...</p>
+          </div>
 
-                    <div class="carousel-slide" data-link="gallery">
-                        <h2 class="text-4xl font-semibold mb-4 text-gray-800 cursor-pointer flex items-center justify-center space-x-4">
-                            <svg width="64" height="64" ...></svg>
-                            <span>Our Gallery</span>
-                        </h2>
-                        <p class="text-gray-600 hidden">Explore our showcase...</p>
-                    </div>
+          <div class="carousel-slide" data-link="gallery">
+            <h2 class="text-4xl font-semibold mb-4 text-gray-800 cursor-pointer flex items-center justify-center space-x-4">
+              <svg width="64" height="64" ...></svg>
+              <span>Our Gallery</span>
+            </h2>
+            <p class="text-gray-600 hidden">Explore our showcase...</p>
+          </div>
 
-                    <div class="carousel-slide" data-link="zsn-machinery">
-                        <h2 class="text-4xl font-semibold mb-4 text-gray-800 cursor-pointer flex items-center justify-center space-x-4">
-                            <svg width="64" height="64" ...></svg>
-                            <span>ZSN Machinery</span>
-                        </h2>
-                        <p class="text-gray-600 hidden">Discover our reliable machinery...</p>
-                    </div>
+          <div class="carousel-slide" data-link="zsn-machinery">
+            <h2 class="text-4xl font-semibold mb-4 text-gray-800 cursor-pointer flex items-center justify-center space-x-4">
+              <svg width="64" height="64" ...></svg>
+              <span>ZSN Machinery</span>
+            </h2>
+            <p class="text-gray-600 hidden">Discover our reliable machinery...</p>
+          </div>
 
-                    <div class="carousel-slide" data-link="contact">
-                        <h2 class="text-4xl font-semibold mb-4 text-gray-800 cursor-pointer flex items-center justify-center space-x-4">
-                            <svg width="64" height="64" ...></svg>
-                            <svg width="64" height="64" ...></svg>
-                            <span>Contact Us</span>
-                        </h2>
-                        <p class="text-gray-600 hidden">Ready to start a project? Get in touch...</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+          <div class="carousel-slide" data-link="contact">
+            <h2 class="text-4xl font-semibold mb-4 text-gray-800 cursor-pointer flex items-center justify-center space-x-4">
+              <svg width="64" height="64" ...></svg>
+              <span>Contact Us</span>
+            </h2>
+            <p class="text-gray-600 hidden">Ready to start a project? Get in touch...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    <footer class="bg-gray-800 text-white p-4 text-center">
-        <p>© 2022 ZSN Engineering | All rights reserved.</p>
-    </footer>
+  <footer class="bg-gray-800 text-white p-4 text-center">
+    <p>© 2022 ZSN Engineering | All rights reserved.</p>
+  </footer>
 
-    <script>
-        const track = document.querySelector('.carousel-track');
-        const slides = document.querySelectorAll('.carousel-slide');
-        const navLinks = document.querySelectorAll('header nav a');
-        let currentIndex = 0;
-        const totalSlides = slides.length;
-        const slideWidth = slides[0].offsetWidth;
+  <script>
+    const track = document.querySelector('.carousel-track');
+    const slides = document.querySelectorAll('.carousel-slide');
+    const navLinks = document.querySelectorAll('header nav a');
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+    const slideWidth = slides[0].offsetWidth;
 
-        function updateCarousel() {
-            navLinks.forEach(link => link.classList.remove('highlighted'));
-            const currentSlideLink = slides[currentIndex].getAttribute('data-link');
-            const navLinkToHighlight = document.getElementById('nav-' + currentSlideLink);
-            if (navLinkToHighlight) {
-                navLinkToHighlight.classList.add('highlighted');
-            }
-            track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-        }
+    function updateCarousel() {
+      navLinks.forEach(link => link.classList.remove('highlighted'));
+      const currentSlideLink = slides[currentIndex].getAttribute('data-link');
+      const navLinkToHighlight = document.getElementById('nav-' + currentSlideLink);
+      if (navLinkToHighlight) {
+        navLinkToHighlight.classList.add('highlighted');
+      }
+      track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    }
 
-        function nextSlide() {
-            currentIndex = (currentIndex + 1) % totalSlides;
-            updateCarousel();
-        }
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      updateCarousel();
+    }
 
-        setInterval(nextSlide, 5000);
+    setInterval(nextSlide, 5000);
 
-        navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetLink = e.target.getAttribute('href').substring(1);
-                slides.forEach((slide, index) => {
-                    if (slide.getAttribute('data-link') === targetLink) {
-                        currentIndex = index;
-                    }
-                });
-                updateCarousel();
-            });
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetLink = e.target.getAttribute('href').substring(1);
+        slides.forEach((slide, index) => {
+          if (slide.getAttribute('data-link') === targetLink) {
+            currentIndex = index;
+          }
         });
+        updateCarousel();
+      });
+    });
 
-        const slideHeadings = document.querySelectorAll('.carousel-slide h2');
-        slideHeadings.forEach(heading => {
-            heading.addEventListener('click', () => {
-                const paragraph = heading.nextElementSibling;
-                if (paragraph) {
-                    paragraph.classList.toggle('hidden');
-                }
-            });
-        });
+    const slideHeadings = document.querySelectorAll('.carousel-slide h2');
+    slideHeadings.forEach(heading => {
+      heading.addEventListener('click', () => {
+        const paragraph = heading.nextElementSibling;
+        if (paragraph) {
+          paragraph.classList.toggle('hidden');
+        }
+      });
+    });
 
-        window.addEventListener('load', updateCarousel);
-    </script>
+    window.addEventListener('load', updateCarousel);
+  </script>
 </body>
 </html>
