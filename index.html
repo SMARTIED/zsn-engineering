@@ -100,26 +100,26 @@
                 <div class="carousel-track">
                     <!-- Slide 1: Services -->
                     <div class="carousel-slide" data-link="services">
-                        <h2 class="text-4xl font-semibold mb-4 text-gray-800">Services Rendered</h2>
-                        <p class="text-gray-600">If you have the drawing, we can make it. We offer fitting, turning, milling, and more.</p>
+                        <h2 class="text-4xl font-semibold mb-4 text-gray-800 cursor-pointer">Services Rendered</h2>
+                        <p class="text-gray-600 hidden">If you have the drawing, we can make it. We offer fitting, turning, milling, and more.</p>
                     </div>
 
                     <!-- Slide 2: Gallery -->
                     <div class="carousel-slide" data-link="gallery">
-                        <h2 class="text-4xl font-semibold mb-4 text-gray-800">Our Gallery</h2>
-                        <p class="text-gray-600">Explore our showcase of completed projects and custom-built machinery.</p>
+                        <h2 class="text-4xl font-semibold mb-4 text-gray-800 cursor-pointer">Our Gallery</h2>
+                        <p class="text-gray-600 hidden">Explore our showcase of completed projects and custom-built machinery.</p>
                     </div>
 
                     <!-- Slide 3: ZSN Machinery -->
                     <div class="carousel-slide" data-link="zsn-machinery">
-                        <h2 class="text-4xl font-semibold mb-4 text-gray-800">ZSN Machinery</h2>
-                        <p class="text-gray-600">Discover our reliable, high-performance machinery, designed for precision and durability.</p>
+                        <h2 class="text-4xl font-semibold mb-4 text-gray-800 cursor-pointer">ZSN Machinery</h2>
+                        <p class="text-gray-600 hidden">Discover our reliable, high-performance machinery, designed for precision and durability.</p>
                     </div>
 
                     <!-- Slide 4: Contact -->
                     <div class="carousel-slide" data-link="contact">
-                        <h2 class="text-4xl font-semibold mb-4 text-gray-800">Contact Us</h2>
-                        <p class="text-gray-600">Ready to start a project? Get in touch with us today for a consultation.</p>
+                        <h2 class="text-4xl font-semibold mb-4 text-gray-800 cursor-pointer">Contact Us</h2>
+                        <p class="text-gray-600 hidden">Ready to start a project? Get in touch with us today for a consultation.</p>
                     </div>
                 </div>
             </div>
@@ -169,6 +169,17 @@
                     }
                 });
                 updateCarousel();
+            });
+        });
+
+        // Add click event listeners to the headings
+        const slideHeadings = document.querySelectorAll('.carousel-slide h2');
+        slideHeadings.forEach(heading => {
+            heading.addEventListener('click', () => {
+                const paragraph = heading.nextElementSibling;
+                if (paragraph) {
+                    paragraph.classList.toggle('hidden');
+                }
             });
         });
 
