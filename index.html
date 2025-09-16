@@ -124,6 +124,22 @@
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
         }
+
+        /* Watermark styling */
+        .hero-watermark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('logo.jpg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.2; /* Adjusted for higher visibility */
+            z-index: 1; /* Place it behind the text content */
+            pointer-events: none; /* Make sure it doesn't interfere with clicks */
+        }
     </style>
 </head>
 <body class="overflow-x-hidden">
@@ -159,6 +175,8 @@
     <main>
         <!-- Hero Section -->
         <section id="hero" class="bg-gray-100 h-screen flex flex-col items-center justify-center text-center p-4 md:p-8 relative">
+            <!-- Watermark container -->
+            <div class="hero-watermark"></div>
             
             <!-- Hero content, placed over the background and watermark -->
             <div class="max-w-4xl mx-auto relative z-10">
@@ -221,11 +239,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- Logo positioned after the "Why Choose Us?" section -->
-        <div class="container mx-auto flex justify-center py-12">
-            <img src="logo.png" alt="ZSN Engineering Logo" class="w-48 h-auto rounded-lg shadow-lg">
-        </div>
         
         <!-- Services Section -->
         <section id="services" class="py-20 px-6 bg-white">
