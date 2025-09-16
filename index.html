@@ -125,8 +125,8 @@
             to { transform: rotate(360deg); }
         }
 
-        /* Watermark styling */
-        .hero-watermark {
+        /* Watermark styling for multiple sections */
+        .section-watermark {
             position: absolute;
             top: 0;
             left: 0;
@@ -136,7 +136,7 @@
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-            opacity: 0.2; /* Adjusted for higher visibility */
+            opacity: 0.4; /* Adjusted for higher visibility */
             z-index: 1; /* Place it behind the text content */
             pointer-events: none; /* Make sure it doesn't interfere with clicks */
         }
@@ -176,7 +176,7 @@
         <!-- Hero Section -->
         <section id="hero" class="bg-gray-100 h-screen flex flex-col items-center justify-center text-center p-4 md:p-8 relative">
             <!-- Watermark container -->
-            <div class="hero-watermark"></div>
+            <div class="section-watermark"></div>
             
             <!-- Hero content, placed over the background and watermark -->
             <div class="max-w-4xl mx-auto relative z-10">
@@ -189,8 +189,10 @@
         </section>
         
         <!-- New "Why Choose Us" section with spinning gear animation -->
-        <section id="why-choose-us" class="py-20 px-6 bg-white">
-            <div class="container mx-auto text-center">
+        <section id="why-choose-us" class="py-20 px-6 bg-white relative">
+            <!-- Watermark container for this section -->
+            <div class="section-watermark"></div>
+            <div class="container mx-auto text-center relative z-10">
                 <h2 class="text-4xl font-bold mb-4">Why Choose Us?</h2>
                 <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-12">Our commitment to quality, innovation, and client satisfaction drives every project we undertake.</p>
                 
@@ -233,20 +235,18 @@
                                     <h3 class="text-xl font-bold">Dedicated Partnership</h3>
                                     <p class="text-gray-700">We work closely with you from start to finish, providing clear communication and transparent processes.</p>
                                 </div>
-                              </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </section>
-
-        <!-- Watermark positioned after the "Why Choose Us?" section -->
-        <div class="relative py-20 overflow-hidden">
-            <img src="logo.png" alt="ZSN Engineering Watermark" class="absolute inset-0 w-full h-full object-contain opacity-10 pointer-events-none z-0">
-        <!-- Logo positioned after the "Why Choose Us?" section -->
-        <div class="container mx-auto flex justify-center py-12">
-            <img src="logo.jpg" alt="ZSN Engineering Logo" class="w-48 h-auto rounded-lg shadow-lg">
-        </div>
         
         <!-- Services Section -->
-        <section id="services" class="py-20 px-6 bg-white">
-            <div class="container mx-auto">
+        <section id="services" class="py-20 px-6 bg-white relative">
+            <!-- Watermark container for this section -->
+            <div class="section-watermark"></div>
+            <div class="container mx-auto relative z-10">
                 <div class="text-center">
                     <h2 class="text-4xl font-bold mb-4">Services Rendered</h2>
                     <p class="text-lg text-gray-600 max-w-3xl mx-auto">From concept to completion, we offer a full suite of engineering services to meet your unique needs.</p>
