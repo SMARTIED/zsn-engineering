@@ -16,19 +16,19 @@
             position: relative;
         }
 
-        /* Watermark Styles */
+        /* Full-page watermark logo based on user-provided code */
         #watermark-logo {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('/_api/v1/content/uploaded:image_6fee4a.png-83cff6d4-4c83-4524-8a22-d771372373fe');
+            background-image: url('/_api/v1/content/uploaded:logo.jpg-e95b2000-138a-4720-adcf-30921f20b511');
             background-repeat: no-repeat;
             background-position: center;
-            background-size: 50%; /* Adjust size as needed */
-            opacity: 0.1; /* Semi-transparent */
-            z-index: -1; /* Ensure it stays behind all content */
+            background-size: 45%;
+            opacity: 0.18; /* stronger visibility */
+            z-index: -2;
         }
 
         /* Animation Styles for the Dust/Droplets effect */
@@ -144,8 +144,10 @@
     </style>
 </head>
 <body class="overflow-x-hidden">
-    <!-- Watermark and animated background overlays -->
+    <!-- Full-page watermark logo container -->
     <div id="watermark-logo"></div>
+    
+    <!-- Animated background overlays -->
     <div class="animated-background">
         <div></div>
         <div></div>
@@ -162,7 +164,6 @@
     <header class="bg-white/90 backdrop-blur-md shadow-md sticky top-0 z-50 py-4">
         <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
             <a href="#hero" class="flex items-center gap-2">
-                <!-- Using a placeholder for a logo, as the image is not a traditional logo -->
                 <div class="w-12 h-12 bg-[#d4ac00] rounded-full flex items-center justify-center text-white font-bold text-xl">ZSN</div>
                 <span class="text-2xl font-bold">Engineering</span>
             </a>
