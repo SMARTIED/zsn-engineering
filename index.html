@@ -11,29 +11,9 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8f8f8;
-            color: #1a1a1a;
+            background-color: #f8f8f8; /* Light off-white background */
+            color: #1a1a1a; /* Dark text for readability */
             position: relative;
-        }
-
-        /* Hero Background with CSS */
-        #hero {
-            background-image: url('/_api/v1/content/uploaded:A labelling machine that one can only imagine of building some day.jpg-8c9f47b8-fe7d-47f8-9ac1-2b965e25d425');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            position: relative;
-        }
-
-        /* Hero overlay for better text readability */
-        #hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.4);
         }
 
         /* Animation Styles for the Dust/Droplets effect */
@@ -50,7 +30,7 @@
 
         .animated-background div {
             position: absolute;
-            background: rgba(212, 172, 0, 0.2);
+            background: rgba(212, 172, 0, 0.2); /* Semi-transparent color from your palette */
             border-radius: 50%;
             animation: move-particles 10s infinite alternate ease-in-out;
             opacity: 0;
@@ -166,8 +146,8 @@
     <header class="bg-white/90 backdrop-blur-md shadow-md sticky top-0 z-50 py-4">
         <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
             <a href="#hero" class="flex items-center gap-2">
-                <!-- Corrected logo without rounded border -->
-                <img src="/_api/v1/content/uploaded:logo.jpg-e95b2000-138a-4720-adcf-30921f20b511" alt="ZSN Engineering Logo" class="w-32 h-auto">
+                <div class="w-12 h-12 bg-[#d4ac00] rounded-full flex items-center justify-center text-white font-bold text-xl">ZSN</div>
+                <span class="text-2xl font-bold">Engineering</span>
             </a>
             <nav class="flex flex-wrap justify-center space-x-4 md:space-x-8 mt-2 md:mt-0">
                 <a href="#services" class="text-gray-600 hover:text-[#d4ac00] transition-colors duration-300 font-medium">Services</a>
@@ -180,10 +160,19 @@
 
     <main>
         <!-- Hero Section -->
-        <section id="hero" class="h-screen flex items-center justify-center text-center p-4 md:p-8">
+        <section id="hero" class="bg-gray-100 h-screen flex items-center justify-center text-center p-4 md:p-8 relative">
+            <!-- Full-width hero background image with watermark logo overlay -->
+            <div class="absolute inset-0 z-0">
+                <img src="/_api/v1/content/uploaded:image_e1e199.png-2c4d0165-0923-4c34-839a-1aae0592e7e5" alt="Hero background of industrial machinery" class="w-full h-full object-cover">
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <img src="/_api/v1/content/uploaded:logo.jpg-7822df29-bb28-4b68-bb9b-c5196d5d4d37" alt="ZSN Engineering Logo" class="w-1/2 md:w-1/4 opacity-15">
+                </div>
+            </div>
+            
+            <!-- Hero content, placed over the background and watermark -->
             <div class="max-w-4xl mx-auto relative z-10">
-                <h1 class="text-5xl md:text-7xl font-bold leading-tight text-white">Engineering Excellence in Every Detail</h1>
-                <p class="mt-4 text-lg md:text-xl font-light text-white">Providing precision engineering, welding, and steelwork solutions to power your success.</p>
+                <h1 class="text-5xl md:text-7xl font-bold leading-tight">Engineering Excellence in Every Detail</h1>
+                <p class="mt-4 text-lg md:text-xl font-light text-gray-600">Providing precision engineering, welding, and steelwork solutions to power your success.</p>
                 <a href="#contact" class="inline-block mt-8 py-3 px-8 bg-[#d4ac00] text-white font-semibold rounded-full shadow-md hover:bg-opacity-90 transition-colors duration-300">
                     Get a Quote
                 </a>
