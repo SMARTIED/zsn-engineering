@@ -68,6 +68,79 @@
         .animated-background div:nth-child(7) { width: 30px; height: 30px; left: 70%; animation-duration: 11s; }
         .animated-background div:nth-child(8) { width: 65px; height: 65px; left: 80%; animation-duration: 16s; }
         .animated-background div:nth-child(9) { width: 45px; height: 45px; left: 90%; animation-duration: 14s; }
+        
+        /* New Styles for the Spinning Gear Animation */
+        .gear-container {
+            width: 200px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gear {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #d4ac00;
+            position: relative;
+            animation: spin 8s linear infinite;
+        }
+
+        .gear::before, .gear::after {
+            content: '';
+            position: absolute;
+            background: #d4ac00;
+        }
+
+        .gear::before {
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            border-radius: 50%;
+            background: transparent;
+            border: 15px solid #f8f8f8;
+            box-sizing: border-box;
+        }
+
+        .gear::after {
+            width: 50px;
+            height: 50px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            background: #f8f8f8;
+        }
+
+        /* Gear teeth */
+        .gear span {
+            position: absolute;
+            width: 25px;
+            height: 40px;
+            background: #d4ac00;
+            transform-origin: 50% 100px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .gear span:nth-child(1) { transform: translate(-50%, -50%) rotate(0deg); }
+        .gear span:nth-child(2) { transform: translate(-50%, -50%) rotate(40deg); }
+        .gear span:nth-child(3) { transform: translate(-50%, -50%) rotate(80deg); }
+        .gear span:nth-child(4) { transform: translate(-50%, -50%) rotate(120deg); }
+        .gear span:nth-child(5) { transform: translate(-50%, -50%) rotate(160deg); }
+        .gear span:nth-child(6) { transform: translate(-50%, -50%) rotate(200deg); }
+        .gear span:nth-child(7) { transform: translate(-50%, -50%) rotate(240deg); }
+        .gear span:nth-child(8) { transform: translate(-50%, -50%) rotate(280deg); }
+        .gear span:nth-child(9) { transform: translate(-50%, -50%) rotate(320deg); }
+
+        /* Keyframes for the gear spin animation */
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body class="overflow-x-hidden">
@@ -111,6 +184,58 @@
                 <a href="#contact" class="inline-block mt-8 py-3 px-8 bg-[#d4ac00] text-white font-semibold rounded-full shadow-md hover:bg-opacity-90 transition-colors duration-300">
                     Get a Quote
                 </a>
+            </div>
+        </section>
+        
+        <!-- New "Why Choose Us" section with spinning gear animation -->
+        <section id="why-choose-us" class="py-20 px-6 bg-white">
+            <div class="container mx-auto text-center">
+                <h2 class="text-4xl font-bold mb-4">Why Choose Us?</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-12">Our commitment to quality, innovation, and client satisfaction drives every project we undertake.</p>
+                
+                <div class="flex flex-col md:flex-row items-center justify-center gap-16">
+                    <!-- Spinning Gear Animation -->
+                    <div class="gear-container">
+                        <div class="gear">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    
+                    <!-- Feature list -->
+                    <div class="text-left md:w-1/2">
+                        <ul class="space-y-6">
+                            <li class="flex items-start gap-4">
+                                <span class="text-[#d4ac00] text-3xl">✅</span>
+                                <div>
+                                    <h3 class="text-xl font-bold">Unrivaled Precision</h3>
+                                    <p class="text-gray-700">We deliver exact specifications and flawless execution, ensuring every component is a perfect fit.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <span class="text-[#d4ac00] text-3xl">🛠️</span>
+                                <div>
+                                    <h3 class="text-xl font-bold">Innovative Solutions</h3>
+                                    <p class="text-gray-700">Our team designs creative and efficient solutions for complex engineering challenges.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <span class="text-[#d4ac00] text-3xl">🤝</span>
+                                <div>
+                                    <h3 class="text-xl font-bold">Dedicated Partnership</h3>
+                                    <p class="text-gray-700">We work closely with you from start to finish, providing clear communication and transparent processes.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -239,4 +364,4 @@
         </div>
     </footer>
 </body>
-</html> 
+</html>
