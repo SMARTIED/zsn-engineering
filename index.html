@@ -126,17 +126,16 @@
         }
 
         /* Watermark styling for multiple sections */
-        .section-watermark {
+        .text-watermark {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('logo.jpg');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            opacity: 0.6; /* Adjusted for higher visibility */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            white-space: nowrap;
+            font-size: 8rem; /* Adjusted for a larger, more impactful watermark */
+            font-weight: bold;
+            color: #d4ac00;
+            opacity: 0.15; /* Adjusted for higher visibility */
             z-index: 1; /* Place it behind the text content */
             pointer-events: none; /* Make sure it doesn't interfere with clicks */
         }
@@ -175,11 +174,8 @@
     <main>
         <!-- Hero Section -->
         <section id="hero" class="bg-gray-100 h-screen flex flex-col items-center justify-center text-center p-4 md:p-8 relative">
-            <!-- Watermark container -->
-            <div class="section-watermark"></div>
-            
-            <!-- Hero content, placed over the background and watermark -->
-            <div class="max-w-4xl mx-auto relative z-10">
+            <div class="text-watermark">ZSN ENGINEERING</div>
+            <div class="max-w-4xl mx-auto relative z-20">
                 <h1 class="text-5xl md:text-7xl font-bold leading-tight">Engineering Excellence in Every Detail</h1>
                 <p class="mt-4 text-lg md:text-xl font-light text-gray-600">Providing precision engineering, welding, and steelwork solutions to power your success.</p>
                 <a href="#contact" class="inline-block mt-8 py-3 px-8 bg-[#d4ac00] text-white font-semibold rounded-full shadow-md hover:bg-opacity-90 transition-colors duration-300">
@@ -190,9 +186,8 @@
         
         <!-- New "Why Choose Us" section with spinning gear animation -->
         <section id="why-choose-us" class="py-20 px-6 bg-white relative">
-            <!-- Watermark container for this section -->
-            <div class="section-watermark"></div>
-            <div class="container mx-auto text-center relative z-10">
+            <div class="text-watermark">ZSN ENGINEERING</div>
+            <div class="container mx-auto text-center relative z-20">
                 <h2 class="text-4xl font-bold mb-4">Why Choose Us?</h2>
                 <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-12">Our commitment to quality, innovation, and client satisfaction drives every project we undertake.</p>
                 
@@ -244,9 +239,8 @@
         
         <!-- Services Section -->
         <section id="services" class="py-20 px-6 bg-white relative">
-            <!-- Watermark container for this section -->
-            <div class="section-watermark"></div>
-            <div class="container mx-auto relative z-10">
+            <div class="text-watermark">ZSN ENGINEERING</div>
+            <div class="container mx-auto relative z-20">
                 <div class="text-center">
                     <h2 class="text-4xl font-bold mb-4">Services Rendered</h2>
                     <p class="text-lg text-gray-600 max-w-3xl mx-auto">From concept to completion, we offer a full suite of engineering services to meet your unique needs.</p>
