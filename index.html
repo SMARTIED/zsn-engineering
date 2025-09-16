@@ -15,14 +15,15 @@
             background-color: #f5f5f5;
         }
 
+        /* Set the background image for the hero section */
         .hero-bg {
-            background-image: url('https://placehold.co/1920x1080/2a2a2a/f5f5f5?text=ZSN+Engineering');
+            background-image: url('A labelling machine that one can only imagine of building some day.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed; /* Parallax effect */
         }
 
-        /* Dark overlay for text readability */
+        /* Dark overlay for text readability on top of the image */
         .hero-bg::after {
             content: '';
             position: absolute;
@@ -32,21 +33,41 @@
             height: 100%;
             background-color: rgba(0, 0, 0, 0.6);
         }
+
+        /* Custom glow effect on hover for icons */
+        .icon-glow {
+            transition: color 0.3s ease;
+        }
+
+        .icon-glow:hover {
+            filter: drop-shadow(0 0 5px #f97316); /* Tailwind's amber-500 */
+        }
+
+        /* Custom shadow for buttons */
+        .button-shadow {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .button-shadow:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15), 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 <body class="overflow-x-hidden">
     <!-- Header -->
-    <header class="bg-white/90 backdrop-blur-md shadow-lg sticky top-0 z-50 py-4">
+    <header class="bg-gray-900/90 backdrop-blur-md shadow-lg sticky top-0 z-50 py-4">
         <div class="container mx-auto px-6 flex flex-col md:flex-row justify-center items-center gap-4">
             <a href="#" class="flex items-center gap-2">
-                <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-xl">ZSN</div>
-                <span class="text-2xl font-bold text-gray-800">Engineering</span>
+                <div class="w-12 h-12 bg-amber-500 rounded-full flex items-center justify-center text-white font-bold text-xl">ZSN</div>
+                <span class="text-2xl font-bold text-white">Engineering</span>
             </a>
             <nav class="flex flex-wrap justify-center space-x-4 md:space-x-8 mt-2 md:mt-0">
-                <a href="#services" class="text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium">Services</a>
-                <a href="#gallery" class="text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium">Gallery</a>
-                <a href="#machinery" class="text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium">Machinery</a>
-                <a href="#contact" class="text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium">Contact</a>
+                <a href="#services" class="text-gray-300 hover:text-amber-500 transition-colors duration-300 font-medium">Services</a>
+                <a href="#gallery" class="text-gray-300 hover:text-amber-500 transition-colors duration-300 font-medium">Gallery</a>
+                <a href="#machinery" class="text-gray-300 hover:text-amber-500 transition-colors duration-300 font-medium">Machinery</a>
+                <a href="#contact" class="text-gray-300 hover:text-amber-500 transition-colors duration-300 font-medium">Contact</a>
             </nav>
         </div>
     </header>
@@ -57,6 +78,9 @@
             <div class="relative z-10 max-w-4xl mx-auto">
                 <h1 class="text-5xl md:text-7xl font-bold leading-tight drop-shadow-lg">Engineering Excellence in Every Detail</h1>
                 <p class="mt-4 text-lg md:text-xl font-light drop-shadow-md">Providing precision engineering, welding, and steelwork solutions to power your success.</p>
+                <a href="#contact" class="inline-block mt-8 py-3 px-8 bg-amber-500 text-white font-semibold rounded-full button-shadow hover:bg-amber-600 transition-colors duration-300">
+                    Get a Quote
+                </a>
             </div>
         </section>
 
@@ -70,22 +94,22 @@
                 <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Service Card -->
                     <div class="bg-gray-100 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                        <div class="text-blue-600 text-3xl mb-4">🔧</div>
+                        <div class="text-amber-500 text-3xl mb-4 icon-glow">🔧</div>
                         <h3 class="text-xl font-bold mb-2">General Engineering</h3>
                         <p class="text-gray-700">Custom fabrication, repair, and maintenance for a wide range of industrial applications.</p>
                     </div>
                     <div class="bg-gray-100 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                        <div class="text-blue-600 text-3xl mb-4">🔥</div>
+                        <div class="text-amber-500 text-3xl mb-4 icon-glow">🔥</div>
                         <h3 class="text-xl font-bold mb-2">Welding</h3>
                         <p class="text-gray-700">Certified welding services for steel, stainless steel, and aluminum structures.</p>
                     </div>
                     <div class="bg-gray-100 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                        <div class="text-blue-600 text-3xl mb-4">⚙️</div>
+                        <div class="text-amber-500 text-3xl mb-4 icon-glow">⚙️</div>
                         <h3 class="text-xl font-bold mb-2">Turning & Milling</h3>
                         <p class="text-gray-700">Precision machining and turning to create complex parts with high accuracy.</p>
                     </div>
                     <div class="bg-gray-100 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                        <div class="text-blue-600 text-3xl mb-4">🏗️</div>
+                        <div class="text-amber-500 text-3xl mb-4 icon-glow">🏗️</div>
                         <h3 class="text-xl font-bold mb-2">All Steel Work</h3>
                         <p class="text-gray-700">Structural steel fabrication, installation, and on-site assembly for construction projects.</p>
                     </div>
@@ -138,17 +162,17 @@
                         <h2 class="text-4xl font-bold mb-4">Contact Us</h2>
                         <p class="text-lg text-gray-600 mb-6">Let's discuss your next project. Fill out the form below or reach out to us directly.</p>
                         <div class="space-y-4 text-gray-700">
-                            <p class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-600" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.686 2 6 4.686 6 8s2.686 6 6 6 6-2.686 6-6-2.686-6-6-6zM12 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"/></svg>123 Industrial Rd, Techno Park, ZA</p>
-                            <p class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-600" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1c-4.962 0-9 4.038-9 9 0 3.65 2.15 6.84 5.39 8.24l.01.01V23l3.52-2.11c.91.13 1.83.21 2.76.21 4.962 0 9-4.038 9-9s-4.038-9-9-9zM12 18c-2.481 0-4.5-2.019-4.5-4.5s2.019-4.5 4.5-4.5 4.5 2.019 4.5 4.5-2.019 4.5-4.5 4.5z"/></svg>+27 12 345 6789</p>
-                            <p class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-600" viewBox="0 0 24 24" fill="currentColor"><path d="M22 6c0-1.103-.897-2-2-2H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5.068L20 8v10z"/></svg>info@zsn.co.za</p>
+                            <p class="flex items-center gap-2 text-amber-500 icon-glow"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.686 2 6 4.686 6 8s2.686 6 6 6 6-2.686 6-6-2.686-6-6-6zM12 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"/></svg><span class="text-gray-700">123 Industrial Rd, Techno Park, ZA</span></p>
+                            <p class="flex items-center gap-2 text-amber-500 icon-glow"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1c-4.962 0-9 4.038-9 9 0 3.65 2.15 6.84 5.39 8.24l.01.01V23l3.52-2.11c.91.13 1.83.21 2.76.21 4.962 0 9-4.038 9-9s-4.038-9-9-9zM12 18c-2.481 0-4.5-2.019-4.5-4.5s2.019-4.5 4.5-4.5 4.5 2.019 4.5 4.5-2.019 4.5-4.5 4.5z"/></svg><span class="text-gray-700">+27 12 345 6789</span></p>
+                            <p class="flex items-center gap-2 text-amber-500 icon-glow"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M22 6c0-1.103-.897-2-2-2H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5.068L20 8v10z"/></svg><span class="text-gray-700">info@zsn.co.za</span></p>
                             <div class="flex items-center gap-4 mt-6">
-                                <a href="#" aria-label="LinkedIn" class="w-10 h-10 flex items-center justify-center bg-gray-800 text-white rounded-full hover:bg-blue-600 transition-colors duration-300">
+                                <a href="#" aria-label="LinkedIn" class="w-10 h-10 flex items-center justify-center bg-gray-800 text-white rounded-full hover:bg-amber-500 transition-colors duration-300">
                                     <svg fill="currentColor" viewBox="0 0 24 24" class="w-5 h-5"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.768s.784-1.768 1.75-1.768 1.75.79 1.75 1.768-.784 1.768-1.75 1.768zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.676 7 2.724v6.511z"/></svg>
                                 </a>
-                                <a href="#" aria-label="Facebook" class="w-10 h-10 flex items-center justify-center bg-gray-800 text-white rounded-full hover:bg-blue-600 transition-colors duration-300">
+                                <a href="#" aria-label="Facebook" class="w-10 h-10 flex items-center justify-center bg-gray-800 text-white rounded-full hover:bg-amber-500 transition-colors duration-300">
                                     <svg fill="currentColor" viewBox="0 0 24 24" class="w-5 h-5"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.238 0-4.192 1.583-4.192 4.615v3.385z"/></svg>
                                 </a>
-                                <a href="#" aria-label="Instagram" class="w-10 h-10 flex items-center justify-center bg-gray-800 text-white rounded-full hover:bg-blue-600 transition-colors duration-300">
+                                <a href="#" aria-label="Instagram" class="w-10 h-10 flex items-center justify-center bg-gray-800 text-white rounded-full hover:bg-amber-500 transition-colors duration-300">
                                     <svg fill="currentColor" viewBox="0 0 24 24" class="w-5 h-5"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.772 1.624 4.981 4.72.042 1.177.054 1.565.054 4.706 0 3.14-.012 3.52-.054 4.706-.209 3.096-1.729 4.572-4.981 4.72-.11.005-.289.016-.89.021-1.288.01-1.642.01-4.85.01s-3.56-.01-4.85-.021c-3.252-.148-4.772-1.624-4.981-4.72-.042-1.177-.054-1.565-.054-4.706 0-3.14.012-3.52.054-4.706.209-3.096 1.729-4.572 4.981-4.72.11-.005.289-.016.89-.021zm0 2.131c-3.14 0-3.52.012-4.706.054-2.28.104-3.22 1.05-3.324 3.33-.042 1.176-.054 1.564-.054 4.706s.012 3.52.054 4.706c.104 2.28 1.044 3.22 3.324 3.324 1.176.042 1.564.054 4.706.054s3.52-.012 4.706-.054c2.28-.104 3.22-1.05 3.324-3.324.042-1.176.054-1.564.054-4.706s-.012-3.52-.054-4.706c-.104-2.28-1.044-3.22-3.324-3.324-1.176-.042-1.564-.054-4.706-.054zm0 2.658c-2.454 0-4.448 1.994-4.448 4.448s1.994 4.448 4.448 4.448 4.448-1.994 4.448-4.448-1.994-4.448-4.448-4.448zm0 2.131c1.288 0 2.317 1.029 2.317 2.317s-1.029 2.317-2.317 2.317-2.317-1.029-2.317-2.317 1.029-2.317 2.317-2.317zm5.541-5.541c-.694 0-1.256.562-1.256 1.256s.562 1.256 1.256 1.256 1.256-.562 1.256-1.256-.562-1.256-1.256-1.256z"/></svg>
                                 </a>
                             </div>
@@ -158,17 +182,17 @@
                         <form class="p-8 bg-white rounded-xl shadow-lg">
                             <div class="mb-4">
                                 <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-                                <input type="text" id="name" name="name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                                <input type="text" id="name" name="name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 focus:border-amber-500 focus:ring focus:ring-amber-200 focus:ring-opacity-50">
                             </div>
                             <div class="mb-4">
                                 <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                                <input type="email" id="email" name="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                                <input type="email" id="email" name="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 focus:border-amber-500 focus:ring focus:ring-amber-200 focus:ring-opacity-50">
                             </div>
                             <div class="mb-4">
                                 <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
-                                <textarea id="message" name="message" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50"></textarea>
+                                <textarea id="message" name="message" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 focus:border-amber-500 focus:ring focus:ring-amber-200 focus:ring-opacity-50"></textarea>
                             </div>
-                            <button type="submit" class="w-full py-2 px-4 bg-gray-800 text-white font-semibold rounded-md hover:bg-gray-700 transition-colors duration-300">
+                            <button type="submit" class="w-full py-2 px-4 bg-gray-800 text-white font-semibold rounded-md hover:bg-gray-700 transition-colors duration-300 button-shadow">
                                 Send Message
                             </button>
                         </form>
@@ -179,7 +203,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8 px-6 text-center">
+    <footer class="bg-gray-900 text-white py-8 px-6 text-center">
         <div class="container mx-auto">
             <p>© 2024 ZSN Engineering. All rights reserved.</p>
         </div>
